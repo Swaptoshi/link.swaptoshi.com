@@ -13,6 +13,7 @@ const generateHTML = (targetURL) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta http-equiv="refresh" content="0;url=${targetURL}" />
   <script type="text/javascript">window.location.href = "${targetURL}";</script>
   <title>Redirecting...</title>
@@ -22,6 +23,23 @@ const generateHTML = (targetURL) => `
 </body>
 </html>
 `;
+
+// Function to create a 404.html page
+const generate404 = () => `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="refresh" content="0; url=https://swaptoshi.com">
+      <script type="text/javascript">window.location.href = "https://swaptoshi.com";</script>
+      <title>Link Not Found...</title>
+  </head>
+  <body>
+      <h1>Link Not Found</h1>
+      <p>Redirecting to <a href="https://swaptoshi.com">Swaptoshi Homepage</a>...</p>
+  </body>
+  </html>
+  `;
 
 // Ensure docs directory is clean
 if (fs.existsSync(docsDir)) {
@@ -43,5 +61,9 @@ Object.entries(redirects).forEach(([shortURL, targetURL]) => {
   fs.writeFileSync(filePath, generateHTML(targetURL), "utf-8");
   console.log(`Generated ${filePath}`);
 });
+
+const notFoundPath = path.join(docsDir, "404.html");
+fs.writeFileSync(notFoundPath, generate404(), "utf-8");
+console.log(`Generated ${notFoundPath}`);
 
 console.log("All redirects generated successfully!");
