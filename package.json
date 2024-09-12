@@ -1,0 +1,24 @@
+{
+  "name": "link.swaptoshi.com",
+  "version": "1.0.0",
+  "description": "🔗 Swaptoshi.com short-links hosted on Github Pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swaptoshi/link.swaptoshi.com.git"
+  },
+  "keywords": [
+    "links",
+    "swaptoshi"
+  ],
+  "author": "swaptoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Swaptoshi/link.swaptoshi.com/issues"
+  },
+  "homepage": "https://github.com/Swaptoshi/link.swaptoshi.com#readme"
+}
